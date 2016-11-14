@@ -12,7 +12,7 @@ use Cpanel::FileUtils        ();
 use Cpanel::Version::Compare ();
 
 our $easyconfig = {
-    'name'      => 'Phalcon',
+    'name'      => 'Phalcon 2.0.x',
     'note'      => q{You may need to install the following PHP extensions: mbstring, mcrypt, openssl, PDO, PDO Sqlite, PDO MySQL.},
     'verify_on' => q{This option will enable PDO, but you may need to select PDO MySQL and/or PDO SQLite if your application(s) require this functionality.},
 
@@ -52,7 +52,7 @@ our $easyconfig = {
             'name'    => 'Extract source',
             'command' => sub {
                 my ($self) = @_;
-                my $phalcon_src = $self->{'opt_mod_src_dir'}.'/cphalcon-master/ext/';
+                my $phalcon_src = $self->{'opt_mod_src_dir'}.'/cphalcon-2.0.x/ext/';
                 my $start = $self->cwd();
 
                 chdir $self->{'opt_mod_src_dir'} or return ( 0, q{Could not chdir into [_1]: [_2]}, $self->{'opt_mod_src_dir'}, $! );
@@ -63,7 +63,7 @@ our $easyconfig = {
             'name'    => 'phpize',
             'command' => sub {
                 my ($self) = @_;
-                my $phalcon_src = $self->{'opt_mod_src_dir'}.'/cphalcon-master/ext/';
+                my $phalcon_src = $self->{'opt_mod_src_dir'}.'/cphalcon-2.0.x/ext/';
 
                 chdir $phalcon_src or return ( 0, q{Could not chdir into [_1]: [_2]}, $phalcon_src, $! );
                 @return = $self->run_system_cmd_returnable( ['/usr/local/bin/phpize'] );
@@ -91,7 +91,7 @@ our $easyconfig = {
                 my ($self) = @_;
                 my $start = $self->cwd();
 
-                my $phalcon_src = $self->{'opt_mod_src_dir'}.'/cphalcon-master/ext/';
+                my $phalcon_src = $self->{'opt_mod_src_dir'}.'/cphalcon-2.0.x/ext/';
                 chdir $phalcon_src or return ( 0, q{Could not chdir into [_1]: [_2]}, $phalcon_src, $! );
                 return $self->run_system_cmd_returnable( [ 'make install' ] );
                 chdir $start or return ( 0, q{Could not chdir back into [_1]: [_2]}, $start, $! );
