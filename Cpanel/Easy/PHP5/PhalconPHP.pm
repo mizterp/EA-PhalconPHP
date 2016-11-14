@@ -12,7 +12,7 @@ use Cpanel::FileUtils        ();
 use Cpanel::Version::Compare ();
 
 our $easyconfig = {
-    'name'      => 'Phalcon',
+    'name'      => 'Phalcon 2.0.x',
     'note'      => q{You may need to install the following PHP extensions: mbstring, mcrypt, openssl, PDO, PDO Sqlite, PDO MySQL.},
     'verify_on' => q{This option will enable PDO, but you may need to select PDO MySQL and/or PDO SQLite if your application(s) require this functionality.},
 
@@ -45,7 +45,7 @@ our $easyconfig = {
             'name'    => 'Download PhalconPHP',
             'command' => sub {
                 my ($self) = @_;
-                return $self->run_system_cmd_returnable( [ 'wget', '-O', $self->{'opt_mod_src_dir'}.'/cphalcon.zip', 'https://github.com/phalcon/cphalcon/archive/master.zip'] );
+                return $self->run_system_cmd_returnable( [ 'wget', '-O', $self->{'opt_mod_src_dir'}.'/cphalcon.zip', 'https://github.com/phalcon/cphalcon/archive/2.0.x.zip'] );
             },
         },
         '1' => {
