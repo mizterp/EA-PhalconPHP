@@ -12,7 +12,7 @@ use Cpanel::FileUtils        ();
 use Cpanel::Version::Compare ();
 
 our $easyconfig = {
-    'name'      => 'Phalcon 2.0.x',
+    'name'      => 'Phalcon',
     'note'      => q{You may need to install the following PHP extensions: mbstring, mcrypt, openssl, PDO, PDO Sqlite, PDO MySQL.},
     'verify_on' => q{This option will enable PDO, but you may need to select PDO MySQL and/or PDO SQLite if your application(s) require this functionality.},
 
